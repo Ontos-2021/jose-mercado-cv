@@ -10,7 +10,7 @@ Currículum de José Mercado, con foco en desarrollo de software, automatizació
 - Formación académica y cursos aprobados de Platzi.
 - Ocho diplomas originales en PDF; Prompt Engineering con ChatGPT destacado en la portada.
 - Correo, WhatsApp y perfil de GitHub.
-- Espacio reservado para una fotografía.
+- Fotografía de perfil de José Mercado en la portada.
 - Diseño responsive, navegación por teclado y versión de impresión.
 
 ## Uso local
@@ -31,16 +31,9 @@ El contenido, los estilos y las interacciones están en `index.html`. Los diplom
 
 Los enlaces a los certificados son relativos, por lo que funcionan tanto en Sites como en GitHub Pages o en un servidor estático.
 
-## Agregar la foto
+## Foto de perfil
 
-1. Crea la carpeta `assets/` y guarda allí la foto como `jose-mercado.jpg`.
-2. En `index.html`, reemplaza el bloque `div.photo-placeholder` por:
-
-```html
-<img class="portrait-photo" src="assets/jose-mercado.jpg" alt="José Mercado">
-```
-
-La clase `portrait-photo` ya incluye el tamaño y recorte necesarios.
+La foto de José Mercado está en `assets/jose-mercado.jpg` y se muestra en la portada con la clase `portrait-photo`, que define el tamaño y recorte responsive.
 
 ## PDF
 
