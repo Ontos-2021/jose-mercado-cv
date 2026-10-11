@@ -77,6 +77,10 @@
     .project h3{font-size:24px;line-height:1.25;margin:0 0 15px;font-weight:500;letter-spacing:-.5px}
     .project p{margin:0 0 14px;color:var(--muted);font-size:16px}.project p:last-child{margin-bottom:0}
     .tags{display:flex;flex-wrap:wrap;gap:8px}.tag{border:1px solid var(--line);padding:3px 9px;border-radius:4px;font:14px Consolas,monospace;color:#c1cbbf}
+    .tech-tags{gap:9px}.tech-tag{display:inline-flex;align-items:center;gap:7px;min-height:32px;padding:4px 9px 4px 5px}
+    .tech-logo-box{width:23px;height:23px;flex:0 0 23px;display:inline-flex;align-items:center;justify-content:center;border-radius:4px;background:#eef0e8;padding:3px}
+    .tech-logo-box.stack{width:auto;flex-basis:auto;gap:2px;padding-inline:4px}
+    .tech-logo{display:block;width:17px;height:17px;object-fit:contain}.tech-logo-box.stack .tech-logo{width:14px;height:14px}
     .project .outcome{color:var(--text);font-size:14px;border-left:2px solid #638445;padding-left:12px}
     .audio-work{margin-left:200px}
     .audio-work .career{margin-left:0}
@@ -196,7 +200,8 @@
       .project{grid-template-columns:95px 1fr 1.3fr;gap:14px;padding:12px 0;break-inside:avoid}
       .project h3{font-size:12pt;margin-bottom:7px}.project p{font-size:9pt;margin-bottom:8px}
       .project-status,.project-status strong,.project-status .state,.project .outcome{font-size:8pt}
-      .tag{font-size:8pt;padding:2px 5px;border-color:#aaa}
+      .tag{font-size:8pt;padding:2px 5px;border-color:#aaa}.tech-tag{gap:4px;min-height:0;padding-left:3px}
+      .tech-logo-box{width:16px;height:16px;flex-basis:16px;padding:2px}.tech-logo{width:12px;height:12px}.tech-logo-box.stack{gap:1px;padding-inline:3px}.tech-logo-box.stack .tech-logo{width:10px;height:10px}
       .audio-context{font-size:9pt;margin:12px 0}
       .subheading{font-size:12pt;margin-bottom:10px;break-after:avoid}
       .credits{grid-template-columns:repeat(3,1fr);gap:18px}.credit{padding-top:9px;break-inside:avoid}
@@ -411,9 +416,30 @@
         <div class="section-heading"><div class="section-number">06 / HERRAMIENTAS</div><h2 id="herramientas-titulo">Tecnologías y áreas<br>de trabajo.</h2></div>
         <div class="skills-layout">
           <div>
-            <div class="skills-group"><h3>Desarrollo y datos</h3><div class="tags"><span class="tag">Python</span><span class="tag">Django / DRF</span><span class="tag">React</span><span class="tag">Flask</span><span class="tag">PostgreSQL</span><span class="tag">SQLite</span><span class="tag">Redis</span><span class="tag">APIs</span></div></div>
-            <div class="skills-group"><h3>Web, infraestructura e identidad</h3><div class="tags"><span class="tag">HTML / CSS / JavaScript</span><span class="tag">Git</span><span class="tag">Linux</span><span class="tag">Docker</span><span class="tag">Azure</span><span class="tag">Entra ID</span><span class="tag">Azure Key Vault</span></div></div>
-            <div class="skills-group"><h3>Automatización e IA</h3><div class="tags"><span class="tag">n8n</span><span class="tag">OpenAI</span><span class="tag">Prompt Engineering</span><span class="tag">RAG</span><span class="tag">Agentes de IA</span></div></div>
+            <div class="skills-group"><h3>Desarrollo y datos</h3><div class="tags tech-tags">
+              <span class="tag tech-tag"><span class="tech-logo-box"><img class="tech-logo" src="assets/tech/python.svg" alt="" aria-hidden="true"></span>Python</span>
+              <span class="tag tech-tag"><span class="tech-logo-box"><img class="tech-logo" src="assets/tech/django.svg" alt="" aria-hidden="true"></span>Django / DRF</span>
+              <span class="tag tech-tag"><span class="tech-logo-box"><img class="tech-logo" src="assets/tech/react.svg" alt="" aria-hidden="true"></span>React</span>
+              <span class="tag tech-tag"><span class="tech-logo-box"><img class="tech-logo" src="assets/tech/flask.svg" alt="" aria-hidden="true"></span>Flask</span>
+              <span class="tag tech-tag"><span class="tech-logo-box"><img class="tech-logo" src="assets/tech/postgresql.svg" alt="" aria-hidden="true"></span>PostgreSQL</span>
+              <span class="tag tech-tag"><span class="tech-logo-box"><img class="tech-logo" src="assets/tech/sqlite.svg" alt="" aria-hidden="true"></span>SQLite</span>
+              <span class="tag tech-tag"><span class="tech-logo-box"><img class="tech-logo" src="assets/tech/redis.svg" alt="" aria-hidden="true"></span>Redis</span>
+              <span class="tag">APIs</span>
+            </div></div>
+            <div class="skills-group"><h3>Web, infraestructura e identidad</h3><div class="tags tech-tags">
+              <span class="tag tech-tag"><span class="tech-logo-box stack"><img class="tech-logo" src="assets/tech/html5.svg" alt="" aria-hidden="true"><img class="tech-logo" src="assets/tech/css3.svg" alt="" aria-hidden="true"><img class="tech-logo" src="assets/tech/javascript.svg" alt="" aria-hidden="true"></span>HTML / CSS / JavaScript</span>
+              <span class="tag tech-tag"><span class="tech-logo-box"><img class="tech-logo" src="assets/tech/git.svg" alt="" aria-hidden="true"></span>Git</span>
+              <span class="tag tech-tag"><span class="tech-logo-box"><img class="tech-logo" src="assets/tech/linux.svg" alt="" aria-hidden="true"></span>Linux</span>
+              <span class="tag tech-tag"><span class="tech-logo-box"><img class="tech-logo" src="assets/tech/docker.svg" alt="" aria-hidden="true"></span>Docker</span>
+              <span class="tag tech-tag"><span class="tech-logo-box"><img class="tech-logo" src="assets/tech/azure.svg" alt="" aria-hidden="true"></span>Azure</span>
+              <span class="tag tech-tag"><span class="tech-logo-box"><img class="tech-logo" src="assets/tech/entra-id.svg" alt="" aria-hidden="true"></span>Entra ID</span>
+              <span class="tag tech-tag"><span class="tech-logo-box"><img class="tech-logo" src="assets/tech/key-vault.svg" alt="" aria-hidden="true"></span>Azure Key Vault</span>
+            </div></div>
+            <div class="skills-group"><h3>Automatización e IA</h3><div class="tags tech-tags">
+              <span class="tag tech-tag"><span class="tech-logo-box"><img class="tech-logo" src="assets/tech/n8n.svg" alt="" aria-hidden="true"></span>n8n</span>
+              <span class="tag tech-tag"><span class="tech-logo-box"><img class="tech-logo" src="assets/tech/openai.svg" alt="" aria-hidden="true"></span>OpenAI</span>
+              <span class="tag">Prompt Engineering</span><span class="tag">RAG</span><span class="tag">Agentes de IA</span>
+            </div></div>
           </div>
           <div class="languages"><h3>Idiomas</h3><dl><dt>Español</dt><dd>Nativo</dd><dt>Inglés</dt><dd>Intermedio</dd><dt>Alemán</dt><dd>Conversacional</dd></dl><p>Mi formación técnica se apoya en investigar, aprender herramientas y aplicarlas a necesidades concretas.</p></div>
         </div>
