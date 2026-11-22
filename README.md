@@ -21,6 +21,7 @@ Abre [la portada](http://127.0.0.1:8765/) o [el CV](http://127.0.0.1:8765/cv/).
 - `assets/site.css`: identidad de Estudio técnico. La mesa de señales conecta las tres pistas con un cable; las fichas de proyectos usan lomos Lado A/B y el retrato funciona como funda de un disco.
 - `assets/fonts/brand.css`: tipografía local de Estudio técnico (Space Grotesk e Inter), compartida por el sitio y el CV. Sus licencias están en `assets/fonts/`.
 - `assets/motion.js`: en `/#mesa`, Audio, Datos y Sistemas permiten elegir qué ver y abren el caso desde el pie del monitor. Al recorrer el relato en escritorio, la pista sigue el capítulo visible. Con movimiento reducido, el selector sigue funcionando sobre imágenes fijas; sin JavaScript, cada pista enlaza con su capítulo en el HTML.
+- `assets/contact.js`: validación y envío del formulario; muestra el resultado sin salir del portafolio.
 - `assets/media/`: el clip «Una fecha más» y su edición para scroll (solo la toma continua), el fondo de jazz generado con Higgsfield, la textura de grano SVG, imágenes fijas y la captura del ejemplo público de Transcríbeme. La sala es ficticia; no se usó material de Bebop.
 - `cv/index.html`: fuente editable del CV. Después de editarla, regenera `cv/jose-mercado.pdf` desde el navegador en A4 sin encabezado ni pie del navegador. El PDF enlaza a las URL públicas de los casos.
 - `certificados/`: diplomas originales, sin cambios.
@@ -30,9 +31,11 @@ Abre [la portada](http://127.0.0.1:8765/) o [el CV](http://127.0.0.1:8765/cv/).
 
 ## Contacto y despliegue
 
-GitHub Pages sirve `josemercado.cl` desde la raíz de `main`. La sección de contacto ofrece correo y WhatsApp: abre la aplicación correspondiente. No hay formulario ni endpoint de envío configurado en este sitio.
+GitHub Pages sirve `josemercado.cl` desde la raíz de `main`. Con JavaScript, el formulario envía nombre, correo y mensaje a `https://api.josemercado.cl/contacto`. El correo directo y WhatsApp siguen disponibles si el formulario no responde o si JavaScript está desactivado.
 
-Para recibir consultas sin salir del portafolio, faltan los campos de nombre, correo y mensaje y un servicio que reciba el `POST`, valide los datos y entregue la consulta al buzón de José. Si se aloja ese servicio en otro dominio, debe admitir el origen de la portada. Las credenciales de entrega van en el servidor.
+La aplicación **Formulario josemercado** de Coolify admite el origen de la portada y usa el buzón personal de José. Las credenciales se guardan solo en el servidor. Después de aceptar la consulta, la API intenta enviar un acuse al remitente; si no lo consigue, la web muestra que la consulta ya fue recibida. La API no se comparte con MMJ Systems.
+
+La vista previa local no tiene acceso de envío al buzón de producción. Antes de actualizar `main`, verifica la entrega de la consulta y de la confirmación con una dirección de prueba propia.
 
 ## Búsqueda orgánica
 
@@ -42,4 +45,5 @@ Al publicar, comprueba que `https://josemercado.cl/sitemap.xml` y las cinco pág
 
 ```bash
 python3 -B -m unittest discover -s tests
+node --test tests/test_contact_form.cjs
 ```

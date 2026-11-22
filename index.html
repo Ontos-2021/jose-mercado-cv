@@ -59,6 +59,7 @@
   }
   </script>
   <script src="assets/motion.js" defer></script>
+  <script src="assets/contact.js" defer></script>
 </head>
 <body id="inicio">
   <a class="skip" href="#contenido">Ir al contenido</a>
@@ -460,6 +461,27 @@
             <a class="text-link" href="https://github.com/Ontos-2021">GitHub</a>
           </div>
         </div>
+        <form class="contact-form" id="formulario-contacto" action="https://api.josemercado.cl/contacto" method="post" aria-labelledby="contacto-form-titulo" aria-describedby="contacto-form-ayuda" data-contact-form hidden>
+          <header>
+            <p class="eyebrow contact-form-index">Consulta directa</p>
+            <h3 id="contacto-form-titulo">Cuéntame en qué estás trabajando.</h3>
+            <p id="contacto-form-ayuda">Usaré tu correo para confirmar la recepción y responderte. No incluyas contraseñas ni datos sensibles.</p>
+          </header>
+          <div class="contact-fields">
+            <label for="contacto-nombre">Nombre
+              <input id="contacto-nombre" name="nombre" autocomplete="name" minlength="2" maxlength="80" required>
+            </label>
+            <label for="contacto-email">Correo electrónico
+              <input id="contacto-email" name="email" type="email" autocomplete="email" maxlength="120" required>
+            </label>
+            <label for="contacto-mensaje">Mensaje
+              <textarea id="contacto-mensaje" name="mensaje" rows="4" minlength="10" maxlength="2000" required></textarea>
+            </label>
+          </div>
+          <label hidden>Sitio web <input name="sitio" autocomplete="off" tabindex="-1"></label>
+          <button class="button contact-submit" type="submit">Enviar consulta <span aria-hidden="true">↗</span></button>
+          <p class="contact-status" role="status" aria-atomic="true" data-contact-status></p>
+        </form>
         <figure class="contact-plate" aria-hidden="true">
           <img src="assets/media/conector-estudio.svg" width="420" height="236" loading="lazy" alt="">
           <figcaption><span>Fig. 07</span> Conector de estudio · 6,35 mm</figcaption>

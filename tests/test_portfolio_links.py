@@ -23,6 +23,7 @@ class Document(HTMLParser):
         self.ids = []
         self.urls = []
         self.downloads = []
+        self.forms = []
         self.headings = 0
         self.canonicals = []
         self.metadata = {}
@@ -50,6 +51,8 @@ class Document(HTMLParser):
             self._json = []
         if tag == "a" and "download" in attrs:
             self.downloads.append(attrs["href"])
+        if tag == "form":
+            self.forms.append(attrs)
         for attr in ("href", "src", "data-src"):
             if attrs.get(attr):
                 self.urls.append(attrs[attr])
@@ -107,6 +110,18 @@ class PortfolioTests(unittest.TestCase):
         urls = [element.text for element in sitemap.findall("s:url/s:loc", ns)]
         self.assertCountEqual(urls, [ORIGIN + route for route in PAGES.values()])
         self.assertIn(f"Sitemap: {ORIGIN}/sitemap.xml", (ROOT / "robots.txt").read_text().splitlines())
+
+    def test_contact_uses_personal_api_and_keeps_direct_channels(self):
+        doc = Document(ROOT / "index.html")
+        [form] = doc.forms
+        self.assertEqual(form["action"], "https://api.josemercado.cl/contacto")
+        self.assertEqual(form["method"], "post")
+        self.assertIn("hidden", form)
+        self.assertIn("assets/contact.js", doc.urls)
+        self.assertIn("mailto:josemercado.musica@gmail.com", doc.urls)
+        self.assertIn("https://wa.me/56995391961", doc.urls)
+        for key in ("aria-labelledby", "aria-describedby"):
+            self.assertIn(form[key], doc.ids)
 
     def test_canonical_and_share_metadata_are_consistent(self):
         titles, descriptions = set(), set()
