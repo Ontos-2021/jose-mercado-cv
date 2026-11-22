@@ -26,7 +26,7 @@ class HardwareIotCatalogTest(unittest.TestCase):
             expected = (
                 '<span class="tag tech-tag"><span class="tech-logo-box">'
                 f'<img class="tech-logo" src="{relative_path}" alt="" '
-                f'aria-hidden="true"></span>{name}</span>'
+                f'aria-hidden="true" loading="lazy"></span>{name}</span>'
             )
             with self.subTest(technology=name):
                 self.assertIn(expected, self.html)
