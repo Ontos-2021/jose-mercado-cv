@@ -64,7 +64,7 @@
   <a class="skip" href="#contenido">Ir al contenido</a>
   <header class="shell">
     <nav class="nav" aria-label="Navegación principal">
-      <a class="brand" href="#inicio" aria-label="José Mercado, inicio"><img class="brand-mark" src="assets/monograma-jm.svg" width="60" height="60" alt=""></a>
+      <a class="brand" href="#inicio" aria-label="José Mercado, inicio"><img class="brand-mark" src="assets/monograma-jm.svg" width="60" height="60" alt=""><span class="brand-type">José Mercado<small>Estudio técnico</small></span></a>
       <div class="nav-links">
         <a href="#proyectos">Proyectos</a>
         <a href="#perfil">Sobre mí</a>
@@ -82,13 +82,69 @@
       <section class="hero" aria-labelledby="nombre" data-story>
         <div class="hero-copy">
           <p class="eyebrow hero-index"><span class="terminal-prompt" aria-hidden="true">&gt;_</span> Portafolio personal <span class="index-divider" aria-hidden="true">/</span> Chile</p>
-          <h1 id="nombre">José <span class="hero-surname">Mercado<span class="name-signal">.</span></span></h1>
+          <h1 id="nombre">José <span class="hero-surname">Mercado<span class="name-signal" aria-hidden="true">.</span></span></h1>
           <p class="hero-role">Desarrollo productos digitales y automatizo procesos de trabajo.</p>
-          <p class="hero-intro">Empiezo por entender dónde se pierde tiempo y construyo herramientas que el equipo pueda probar y usar.</p>
           <div class="actions">
             <a class="button button-solid" href="#proyectos">Ver proyectos <span aria-hidden="true">↘</span></a>
             <a class="button button-outline" href="#contacto">Conversemos <span aria-hidden="true">↗</span></a>
           </div>
+        </div>
+
+        <figure class="film" id="mesa" data-story-stage>
+          <div class="signal-console" data-signal-console data-channel="0">
+            <div class="console-header" aria-hidden="true">
+              <span class="console-label">Mesa de señales</span>
+              <span class="console-folio">JM <span>/</span> Pista <b data-story-count>01 / 03</b></span>
+            </div>
+            <div class="film-frame" id="monitor-visual" data-scene="0" aria-hidden="true">
+              <img class="film-backplate" width="1360" height="765" alt="" decoding="async" data-src="assets/media/sala-jazz-parallax.webp">
+              <div class="film-window">
+                <div class="film-scene film-room">
+                  <img class="film-poster" src="assets/media/una-fecha-mas-scroll.webp" width="960" height="540" alt="" fetchpriority="high">
+                  <video class="film-video" data-src="assets/media/una-fecha-mas-scroll.mp4" width="960" height="540" muted playsinline preload="none" disablepictureinpicture></video>
+                  <div class="film-slate"><span>Buenos Aires / Jazz en vivo</span><b>Bebop<i>.</i></b></div>
+                </div>
+                <div class="film-scene film-transcript">
+                  <p class="eyebrow monitor-label"><b>02</b> Audio → documento</p>
+                  <img src="assets/media/transcribeme-ejemplo.webp" width="710" height="354" alt="" loading="lazy" decoding="async">
+                </div>
+                <div class="film-scene film-hermes">
+                  <p class="eyebrow monitor-label"><b>03</b> Teléfono → servidor</p>
+                  <ol class="flow-mini">
+                    <li><span class="flow-key">01</span><span>Conecto un disco</span></li>
+                    <li><span class="flow-key">02</span><span>Pido un respaldo desde el celular</span></li>
+                    <li><span class="flow-key">03</span><span>Reviso la copia</span><span class="flow-check">✓</span></li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+            <div class="patch-field" aria-hidden="true">
+              <svg viewBox="0 0 480 32" preserveAspectRatio="none" fill="none">
+                <defs>
+                  <path id="ruta-audio" pathLength="1" d="M22 0v5a8 8 0 0 0 8 8h42a8 8 0 0 1 8 8v11"/>
+                  <path id="ruta-datos" pathLength="1" d="M22 0v5a8 8 0 0 0 8 8h202a8 8 0 0 1 8 8v11"/>
+                  <path id="ruta-sistemas" pathLength="1" d="M22 0v5a8 8 0 0 0 8 8h362a8 8 0 0 1 8 8v11"/>
+                </defs>
+                <g class="patch-traces"><use href="#ruta-audio"/><use href="#ruta-datos"/><use href="#ruta-sistemas"/></g>
+                <g class="patch-selected"><use href="#ruta-audio"/><use href="#ruta-datos"/><use href="#ruta-sistemas"/></g>
+              </svg>
+            </div>
+            <div class="console-channels" role="group" aria-label="Elige una pista del monitor">
+              <a class="console-channel" href="#pista-audio"><b>01</b> Audio<span class="console-port" aria-hidden="true"></span></a>
+              <a class="console-channel" href="#pista-datos"><b>02</b> Datos<span class="console-port" aria-hidden="true"></span></a>
+              <a class="console-channel" href="#pista-sistemas"><b>03</b> Sistemas<span class="console-port" aria-hidden="true"></span></a>
+            </div>
+          </div>
+          <figcaption class="film-caption">
+            <span><strong data-story-title>Una fecha más</strong><span class="film-note" data-story-note>Recreación visual · Sin audio</span></span>
+            <a class="text-link" href="#pista-audio" data-story-link>Leer la historia <span aria-hidden="true">↗</span></a>
+            <span class="film-progress" aria-hidden="true"><span data-story-progress></span></span>
+            <span class="sr-only" role="status" data-track-status></span>
+          </figcaption>
+        </figure>
+
+        <div class="hero-notes">
+          <p class="hero-intro">Grabé conciertos de jazz en Buenos Aires. Hoy desarrollo software en Chile con la misma costumbre: escuchar primero.</p>
           <div class="hero-utilities">
             <a class="text-link" href="#recorrido">Recorrer la historia <span aria-hidden="true">↓</span></a>
             <button class="motion-button" type="button" data-motion-toggle aria-pressed="false" hidden>
@@ -98,70 +154,27 @@
           </div>
         </div>
 
-        <figure class="film" data-story-stage>
-          <div class="signal-console" data-signal-console data-channel="0" aria-hidden="true">
-            <div class="console-header">
-              <span class="console-label"><span class="console-port"></span> Monitor de señal</span>
-              <span class="console-meter"></span>
-            </div>
-            <div class="film-frame" data-scene="0">
-              <img class="film-backplate" width="1360" height="765" alt="" decoding="async" data-src="assets/media/sala-jazz-parallax.webp">
-              <div class="film-window">
-                <div class="film-scene film-room">
-                  <img class="film-poster" src="assets/media/una-fecha-mas-scroll.webp" width="960" height="540" alt="" fetchpriority="high">
-                  <video class="film-video" data-src="assets/media/una-fecha-mas-scroll.mp4" width="960" height="540" muted playsinline preload="none" disablepictureinpicture></video>
-                </div>
-                <div class="film-scene film-transcript">
-                  <p class="eyebrow">Audio → documento</p>
-                  <img src="assets/media/transcribeme-ejemplo.webp" width="710" height="354" alt="" loading="lazy" decoding="async">
-                </div>
-                <div class="film-scene film-hermes">
-                  <p class="eyebrow">Teléfono → servidor</p>
-                  <ol class="flow-mini">
-                    <li><span class="flow-key">01</span><span>Conecto un disco</span></li>
-                    <li><span class="flow-key">02</span><span>Pido un respaldo desde el celular</span></li>
-                    <li><span class="flow-key">03</span><span>Reviso la copia</span><span class="flow-check">✓</span></li>
-                  </ol>
-                </div>
-              </div>
-              <div class="film-mark"><span class="signal-dot"></span> <span data-story-tag>01 / Bebop</span></div>
-            </div>
-            <div class="console-channels">
-              <span class="console-channel"><span class="console-port"></span><span><b>01</b> Audio</span></span>
-              <span class="console-channel"><span class="console-port"></span><span><b>02</b> Datos</span></span>
-              <span class="console-channel"><span class="console-port"></span><span><b>03</b> Sistemas</span></span>
-            </div>
-          </div>
-          <figcaption class="film-caption">
-            <span><strong data-story-title>Una fecha más</strong><span class="film-note" data-story-note>Recreación visual · Sin audio</span></span>
-            <span class="film-progress" aria-hidden="true">
-              <span class="film-progress-track"><span data-story-progress></span></span>
-              <span data-story-count>01 / 03</span>
-            </span>
-          </figcaption>
-        </figure>
-
         <section class="journey" id="recorrido" aria-labelledby="recorrido-titulo">
           <header class="journey-heading">
             <h2 id="recorrido-titulo">Del sonido a <em>los sistemas.</em></h2>
             <p class="journey-hint" aria-hidden="true">Desplázate para avanzar <span>↓</span></p>
           </header>
           <ol class="journey-chapters" role="list">
-            <li class="journey-chapter" data-story-chapter>
+            <li class="journey-chapter" id="pista-audio" data-story-chapter>
               <p class="eyebrow"><span>01</span> / Bebop</p>
               <h3>Una noche que se volvió un disco.</h3>
               <p>Tomé la iniciativa de grabar una presentación de Daniel Maza, Hernán Jacinto y Pipi Piazzolla. Ese registro se publicó en 2024 como <cite>Vivo en Bebop</cite>.</p>
               <figure class="chapter-still"><img src="assets/media/una-fecha-mas-poster.jpg" width="1280" height="720" alt="Recreación visual: una mano inicia una grabación en una sala de jazz." loading="lazy" decoding="async"></figure>
               <a class="text-link" href="#perfil">Ver mi trayectoria en sonido <span aria-hidden="true">↗</span></a>
             </li>
-            <li class="journey-chapter" data-story-chapter>
+            <li class="journey-chapter" id="pista-datos" data-story-chapter>
               <p class="eyebrow"><span>02</span> / Transcríbeme</p>
               <h3>Encontrar lo importante en una grabación.</h3>
               <p>Construí Transcríbeme para convertir audios en documentos que puedas revisar y descargar. En la beta puedes probarlo con tus propios archivos.</p>
               <figure class="chapter-still"><img src="assets/media/transcribeme-ejemplo.webp" width="710" height="354" alt="Ejemplo público: el documento de Transcríbeme registra un acuerdo y una tarea pendiente." loading="lazy" decoding="async"></figure>
               <a class="text-link" href="proyectos/transcribeme.html">Leer el caso de Transcríbeme <span aria-hidden="true">↗</span></a>
             </li>
-            <li class="journey-chapter" data-story-chapter>
+            <li class="journey-chapter" id="pista-sistemas" data-story-chapter>
               <p class="eyebrow"><span>03</span> / Hermes</p>
               <h3>Hacer un respaldo desde el teléfono.</h3>
               <p>Convertí mi PC en un servidor sin monitor. Con Hermes, puedo conectar un disco, pedir el respaldo desde el celular y revisar la copia sin sentarme frente al equipo.</p>
@@ -191,7 +204,8 @@
         <div class="project-grid">
           <article class="case-card">
             <div class="case-visual case-visual-transcript" data-reveal>
-              <span class="visual-label" aria-hidden="true">01 / AUDIO → DOCUMENTO</span>
+              <div class="sleeve-spine" aria-hidden="true"><b>01</b><span>Lado A</span></div>
+              <span class="visual-label" aria-hidden="true">Audio → documento</span>
               <img class="transcript-sample" src="assets/media/transcribeme-ejemplo.webp" width="710" height="354" alt="Ejemplo público de Transcríbeme: un fragmento de audio convertido en un acuerdo y una tarea pendiente." loading="lazy" decoding="async">
             </div>
             <div class="case-body">
@@ -203,7 +217,8 @@
           </article>
           <article class="case-card">
             <div class="case-visual case-visual-hermes" data-reveal aria-hidden="true">
-              <span class="visual-label">02 / TELÉFONO → SERVIDOR</span>
+              <div class="sleeve-spine"><b>02</b><span>Lado B</span></div>
+              <span class="visual-label">Teléfono → servidor</span>
               <ol class="flow-mini">
                 <li><span class="flow-key">01</span><span>Conecto un disco</span></li>
                 <li><span class="flow-key">02</span><span>Pido el respaldo desde el celular</span></li>
@@ -293,8 +308,8 @@
         </header>
         <div class="about-grid">
           <figure class="profile-portrait">
-            <img src="assets/jose-mercado.jpg" width="800" height="800" alt="Retrato de José Mercado" loading="lazy" decoding="async">
-            <figcaption class="eyebrow">José Mercado · Chile / Argentina</figcaption>
+            <div class="portrait-sleeve"><img src="assets/jose-mercado.jpg" width="800" height="800" alt="Retrato de José Mercado" loading="lazy" decoding="async"></div>
+            <figcaption class="eyebrow"><span>José Mercado</span> Chile / Argentina</figcaption>
           </figure>
           <div class="about-copy">
             <p class="lead">Empecé a programar para quitarle fricción al día a día de mis proyectos musicales.</p>
@@ -428,24 +443,29 @@
         </div>
       </section>
 
-      <section class="section contact" id="contacto" aria-labelledby="contacto-titulo">
-        <p class="eyebrow section-index"><span>07</span> / Contacto</p>
-        <div>
+    </div>
+    <section class="section contact" id="contacto" aria-labelledby="contacto-titulo">
+      <div class="shell contact-layout">
+        <div class="contact-copy">
+          <p class="eyebrow section-index"><span>07</span> / Contacto</p>
           <h2 id="contacto-titulo">Conversemos.</h2>
-          <p>Si estás armando un equipo de producto o tienes un proceso que quieres mejorar, cuéntame qué necesitas.</p>
+          <p class="contact-invite">Si estás armando un equipo de producto o tienes un proceso que quieres mejorar, cuéntame qué necesitas.</p>
           <div class="actions">
-            <a class="button button-solid" href="mailto:josemercado.musica@gmail.com?subject=Oportunidad%20profesional">Oportunidades profesionales <span aria-hidden="true">↗</span></a>
-            <a class="button button-outline" href="mailto:josemercado.musica@gmail.com?subject=Conversemos%20sobre%20un%20proyecto">Proyectos y colaboraciones <span aria-hidden="true">↗</span></a>
+            <a class="button button-solid" href="mailto:josemercado.musica@gmail.com?subject=Conversemos%20sobre%20un%20proyecto">Escríbeme por correo <span aria-hidden="true">↗</span></a>
+            <a class="button button-outline" href="https://wa.me/56995391961">Abrir WhatsApp <span aria-hidden="true">↗</span></a>
           </div>
           <div class="contact-links">
-            <a class="text-link" href="cv/">Ver currículum en la web</a>
             <a class="text-link" href="mailto:josemercado.musica@gmail.com">josemercado.musica@gmail.com</a>
-            <a class="text-link" href="https://wa.me/56995391961">WhatsApp</a>
+            <a class="text-link" href="cv/">Ver currículum en la web</a>
             <a class="text-link" href="https://github.com/Ontos-2021">GitHub</a>
           </div>
         </div>
-      </section>
-    </div>
+        <figure class="contact-plate" aria-hidden="true">
+          <img src="assets/media/conector-estudio.svg" width="420" height="236" loading="lazy" alt="">
+          <figcaption><span>Fig. 07</span> Conector de estudio · 6,35 mm</figcaption>
+        </figure>
+      </div>
+    </section>
   </main>
   <footer class="footer shell">
     <span>José Mercado <span class="footer-divider" aria-hidden="true">/</span> Portafolio personal</span>

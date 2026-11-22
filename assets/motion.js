@@ -20,24 +20,51 @@ const frame = stage.querySelector(".film-frame");
 const video = frame.querySelector("video");
 const background = frame.querySelector(".film-backplate");
 const chapters = [...story.querySelectorAll("[data-story-chapter]")];
-const tag = stage.querySelector("[data-story-tag]");
 const title = stage.querySelector("[data-story-title]");
 const note = stage.querySelector("[data-story-note]");
 const counter = stage.querySelector("[data-story-count]");
+const storyLink = stage.querySelector("[data-story-link]");
+const trackStatus = stage.querySelector("[data-track-status]");
 const progressBar = stage.querySelector("[data-story-progress]");
 const depthFields = [...document.querySelectorAll("[data-depth]")];
 const chapterMedia = [
-  ["01 / Bebop", "Una fecha más", "Recreación visual · Sin audio"],
-  ["02 / Transcríbeme", "Transcríbeme.cl", "Ejemplo público del producto"],
-  ["03 / Hermes", "Servidor con Hermes", "Esquema de un respaldo"]
+  { title: "Una fecha más", note: "Recreación visual · Sin audio", label: "Leer la historia", url: "#pista-audio" },
+  { title: "Transcríbeme.cl", note: "Ejemplo público del producto", label: "Ver el caso", url: "proyectos/transcribeme.html" },
+  { title: "Servidor con Hermes", note: "Esquema de un respaldo", label: "Ver el caso", url: "proyectos/servidor-hermes.html" }
 ];
 
 let currentScene = -1;
+let manualTrack = null;
 let frameRequest = 0;
 let videoRequest;
 let videoUrl;
 let videoFailed = false;
 const activeReveals = new Set();
+
+// Without a controller, each channel is a regular link to the complete chapter.
+const trackButtons = [...consolePanel.querySelectorAll(".console-channel")].map((link, index) => {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = link.className;
+  button.setAttribute("aria-controls", frame.id);
+  button.append(...link.childNodes);
+  link.replaceWith(button);
+  button.addEventListener("click", () => {
+    manualTrack = { index, reading: readingChapter(window.innerHeight * .54) };
+    showScene(index);
+    trackStatus.textContent = `${chapterMedia[index].title}. ${chapterMedia[index].note}.`;
+    scheduleMotion();
+  });
+  return button;
+});
+
+function readingChapter(trigger, bounds = chapters.map(chapter => chapter.getBoundingClientRect())) {
+  if (!pinnedStage.matches) return -1;
+  for (let i = chapters.length - 1; i >= 0; i--) {
+    if (bounds[i].top <= trigger) return i;
+  }
+  return -1;
+}
 
 function showScene(index) {
   if (index === currentScene) return;
@@ -45,7 +72,13 @@ function showScene(index) {
   frame.dataset.scene = String(index);
   consolePanel.dataset.channel = String(index);
   chapters.forEach((chapter, i) => chapter.toggleAttribute("data-current", i === index));
-  [tag.textContent, title.textContent, note.textContent] = chapterMedia[index];
+  trackButtons.forEach((button, i) => button.setAttribute("aria-pressed", String(i === index)));
+  const media = chapterMedia[index];
+  title.textContent = media.title;
+  note.textContent = media.note;
+  storyLink.href = media.url;
+  storyLink.firstChild.textContent = `${media.label} `;
+  storyLink.setAttribute("aria-label", `${media.label}: ${media.title}`);
   counter.textContent = `0${index + 1} / 03`;
 }
 
@@ -89,8 +122,12 @@ function renderStory(view) {
 
   const pinned = pinnedStage.matches;
   const trigger = view * .54;
-  const [second, third] = chapters.slice(1).map(chapter => chapter.getBoundingClientRect());
-  const active = pinned ? (third.top <= trigger ? 2 : second.top <= trigger ? 1 : 0) : 0;
+  const chapterBounds = chapters.map(chapter => chapter.getBoundingClientRect());
+  const [, second, third] = chapterBounds;
+  const reading = readingChapter(trigger, chapterBounds);
+  // Keep a chosen preview stable until the reader actually enters another pinned chapter.
+  if (manualTrack && pinned && manualTrack.reading !== reading) manualTrack = null;
+  const active = manualTrack?.index ?? Math.max(0, reading);
   const start = pinned ? bounds.top - 8 : Math.max(bounds.top - 8, screen.top - view * .54);
   const clipEnd = pinned ? second.top - trigger : screen.bottom - view * .12;
   const clip = clamp(-start / Math.max(1, clipEnd - start));
@@ -99,10 +136,11 @@ function renderStory(view) {
   const drift = .5 - clip;
 
   showScene(active);
+  frame.toggleAttribute("data-scrubbing", active === 0 && clip > .035);
   if (!navigator.connection?.saveData && !background.hasAttribute("src")) background.src = background.dataset.src;
   frame.style.setProperty("--parallax-back", `${(drift * (pinned ? 13 : 8)).toFixed(2)}px`);
-  frame.style.setProperty("--parallax-front", `${(drift * (pinned ? 43 : 25)).toFixed(2)}px`);
-  progressBar.style.transform = `scaleX(${total.toFixed(4)})`;
+  frame.style.setProperty("--parallax-front", `${(drift * (pinned ? 20 : 10)).toFixed(2)}px`);
+  progressBar.style.transform = `scaleX(${manualTrack ? (active + 1) / chapters.length : total.toFixed(4)})`;
   // Stay on the matching poster until a visitor approaches the film or starts the story.
   if (active === 0 && (videoUrl || clip > 0 || window.scrollY > 24)) scrubStoryVideo(clip);
 }
@@ -138,11 +176,12 @@ function setMotion() {
   videoRequest?.abort();
   videoRequest = null;
   frame.removeAttribute("data-video-ready");
+  frame.removeAttribute("data-scrubbing");
   frame.style.removeProperty("--parallax-back");
   frame.style.removeProperty("--parallax-front");
   progressBar.style.removeProperty("transform");
   depthFields.forEach(field => field.style.removeProperty("--depth-phase"));
-  showScene(0);
+  showScene(manualTrack?.index ?? 0);
   chapters.forEach(chapter => chapter.removeAttribute("data-current"));
   activeReveals.forEach(animation => animation.cancel());
 }
@@ -170,6 +209,7 @@ motionToggle.addEventListener("click", () => {
   setMotion();
 });
 reducedMotion.addEventListener("change", setMotion);
+showScene(0);
 setMotion();
 
 if ("IntersectionObserver" in window && typeof Element.prototype.animate === "function") {
