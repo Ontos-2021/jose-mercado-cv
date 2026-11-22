@@ -22,8 +22,10 @@ class Document(HTMLParser):
         super().__init__()
         self.ids = []
         self.urls = []
+        self.primary_links = []
         self.downloads = []
         self.forms = []
+        self.fields = []
         self.headings = 0
         self.canonicals = []
         self.metadata = {}
@@ -49,10 +51,15 @@ class Document(HTMLParser):
             self.canonicals.append(attrs.get("href"))
         if tag == "script" and attrs.get("type") == "application/ld+json":
             self._json = []
-        if tag == "a" and "download" in attrs:
-            self.downloads.append(attrs["href"])
+        if tag == "a":
+            if "download" in attrs:
+                self.downloads.append(attrs["href"])
+            if "button-solid" in attrs.get("class", "").split():
+                self.primary_links.append(attrs["href"])
         if tag == "form":
             self.forms.append(attrs)
+        if tag in ("input", "textarea"):
+            self.fields.append(attrs)
         for attr in ("href", "src", "data-src"):
             if attrs.get(attr):
                 self.urls.append(attrs[attr])
@@ -122,6 +129,21 @@ class PortfolioTests(unittest.TestCase):
         self.assertIn("https://wa.me/56995391961", doc.urls)
         for key in ("aria-labelledby", "aria-describedby"):
             self.assertIn(form[key], doc.ids)
+        self.assertCountEqual(
+            (field["name"] for field in doc.fields if "required" in field),
+            ["nombre", "email", "mensaje"],
+        )
+        [message] = [field for field in doc.fields if field.get("name") == "mensaje"]
+        self.assertIn(message["aria-describedby"], doc.ids)
+
+    def test_automation_is_the_primary_path_from_home_to_contact(self):
+        home = Document(ROOT / "index.html")
+        service = Document(ROOT / "automatizacion/index.html")
+        self.assertEqual(home.primary_links, ["automatizacion/"])
+        self.assertIn("#proyectos", home.urls)
+        self.assertTrue(service.primary_links)
+        self.assertEqual(set(service.primary_links), {"../#contacto"})
+        self.assertIn("ejemplos", service.ids)
 
     def test_canonical_and_share_metadata_are_consistent(self):
         titles, descriptions = set(), set()

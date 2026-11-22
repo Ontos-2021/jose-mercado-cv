@@ -16,13 +16,13 @@ Abre [la portada](http://127.0.0.1:8765/) o [el CV](http://127.0.0.1:8765/cv/).
 
 - `index.html`: portada, proyectos, experiencia, trayectoria, bitácora, formación y contacto.
 - `proyectos/`: casos de Transcríbeme.cl y el servidor personal con Hermes.
-- `automatizacion/index.html`: página para quienes buscan automatizar un proceso, con ejemplos del portafolio.
+- `automatizacion/index.html`: oferta de un piloto para pasar datos de una planilla a un sistema. Muestra cómo se validan las filas y cómo se separan las excepciones, y dirige al formulario de la portada.
 - `assets/monograma-jm.svg`: monograma JM de Señal verde, usado en la navegación y como icono de la pestaña.
 - `assets/site.css`: identidad de Estudio técnico. La mesa de señales conecta las tres pistas con un cable; las fichas de proyectos usan lomos Lado A/B y el retrato funciona como funda de un disco.
 - `assets/fonts/brand.css`: tipografía local de Estudio técnico (Space Grotesk e Inter), compartida por el sitio y el CV. Sus licencias están en `assets/fonts/`.
 - `assets/motion.js`: en `/#mesa`, Audio, Datos y Sistemas permiten elegir qué ver y abren el caso desde el pie del monitor. Al recorrer el relato en escritorio, la pista sigue el capítulo visible. Con movimiento reducido, el selector sigue funcionando sobre imágenes fijas; sin JavaScript, cada pista enlaza con su capítulo en el HTML.
 - `assets/contact.js`: validación y envío del formulario; muestra el resultado sin salir del portafolio.
-- `assets/media/`: el clip «Una fecha más» y su edición para scroll (solo la toma continua), el fondo de jazz generado con Higgsfield, la textura de grano SVG, imágenes fijas y la captura del ejemplo público de Transcríbeme. La sala es ficticia; no se usó material de Bebop.
+- `assets/media/`: el clip «Una fecha más» y su edición para scroll (solo la toma continua), el fondo de jazz generado con Higgsfield, la textura de grano SVG, imágenes fijas y la captura del ejemplo público de Transcríbeme. La sala es ficticia.
 - `cv/index.html`: fuente editable del CV. Después de editarla, regenera `cv/jose-mercado.pdf` desde el navegador en A4 sin encabezado ni pie del navegador. El PDF enlaza a las URL públicas de los casos.
 - `certificados/`: diplomas originales, sin cambios.
 - `robots.txt` y `sitemap.xml`: rastreo y URL canónicas de las páginas HTML públicas.

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#141611">
-  <meta name="description" content="Automatización de procesos en Chile con José Mercado: desarrollo de software e integraciones para reducir tareas manuales y conectar datos y documentos.">
+  <meta name="description" content="Automatización de procesos en Chile con José Mercado. Un piloto para dejar de copiar datos de una planilla a tu sistema, con validación y revisión de excepciones.">
   <meta name="robots" content="max-image-preview:large">
   <title>Automatización de procesos en Chile | José Mercado</title>
   <link rel="canonical" href="https://josemercado.cl/automatizacion/">
@@ -12,7 +12,7 @@
   <meta property="og:site_name" content="José Mercado">
   <meta property="og:locale" content="es_CL">
   <meta property="og:title" content="Automatización de procesos en Chile | José Mercado">
-  <meta property="og:description" content="Desarrollo software e integraciones para reducir tareas manuales y conectar datos y documentos.">
+  <meta property="og:description" content="Automatiza la carga de datos de una planilla a tu sistema. Los registros válidos se cargan y las excepciones quedan a la vista.">
   <meta property="og:url" content="https://josemercado.cl/automatizacion/">
   <meta property="og:image" content="https://josemercado.cl/assets/social/jose-mercado.jpg">
   <meta property="og:image:width" content="1200">
@@ -71,51 +71,41 @@
     </nav>
     <header class="case-feature service-feature">
       <div>
-        <p class="eyebrow case-meta"><span class="status-dot" aria-hidden="true"></span> José Mercado · Software e integraciones</p>
-        <h1>Automatización de procesos <em>en Chile.</em></h1>
-        <p class="case-lead">Desarrollo herramientas para equipos que copian datos entre sistemas, procesan documentos o dependen de pasos manuales para completar una tarea.</p>
+        <p class="eyebrow case-meta"><span class="status-dot" aria-hidden="true"></span> Automatización de procesos en Chile</p>
+        <h1>Deja de cargar <em>los mismos datos</em> dos veces.</h1>
+        <p class="case-lead">Si tu equipo pasa datos de una planilla a otro sistema cada semana, puedo automatizar ese paso. Los registros válidos se cargan; los que necesitan revisión quedan señalados.</p>
         <div class="actions">
           <a class="button button-solid" href="../#contacto">Cuéntame qué quieres automatizar <span aria-hidden="true">↗</span></a>
-          <a class="button button-outline" href="#ejemplos">Ver ejemplos <span aria-hidden="true">↓</span></a>
         </div>
       </div>
-      <aside class="service-panel">
-        <p class="eyebrow"><span class="terminal-prompt" aria-hidden="true">&gt;_</span> Por dónde empezar</p>
-        <h2>¿Dónde se pierde tiempo?</h2>
-        <ul>
-          <li>Ingresar el mismo dato en más de un sistema.</li>
-          <li>Buscar requisitos o acuerdos en documentos y audios.</li>
-          <li>Revisar si se completaron tareas repetitivas, como un respaldo.</li>
-        </ul>
-        <p>Para una primera conversación basta con un ejemplo de la tarea, con qué frecuencia se repite y qué herramientas usa tu equipo.</p>
-      </aside>
+      <figure class="service-panel" id="ejemplos">
+        <figcaption>
+          <span class="eyebrow"><span class="terminal-prompt" aria-hidden="true">&gt;_</span> Ejemplo ilustrativo</span>
+          <strong>De la planilla al sistema</strong>
+        </figcaption>
+        <ol class="service-flow" role="list">
+          <li><span class="flow-key" aria-hidden="true">01</span><div><strong>Planilla</strong><p>Cada fila trae un pedido.</p></div></li>
+          <li><span class="flow-key" aria-hidden="true">02</span><div><strong>Validación</strong><p>El flujo comprueba el código y la cantidad.</p></div></li>
+          <li><span class="flow-key" aria-hidden="true">03</span><div><strong>Carga al sistema</strong><p>Solo se cargan los pedidos que pasan la validación.</p></div></li>
+        </ol>
+        <p class="service-exception"><strong>Si falta el código:</strong> el pedido no se carga y queda marcado para que tu equipo lo revise.</p>
+      </figure>
     </header>
     <section class="service-section" aria-labelledby="enfoque">
-      <h2 id="enfoque">Cómo abordo un proceso</h2>
+      <p class="eyebrow">Un piloto / Un proceso</p>
+      <h2 id="enfoque">Qué recibes</h2>
       <div class="case-details">
-        <section><p class="eyebrow">01 / Diagnóstico</p><h3>Seguir una tarea real</h3><p>Reviso de dónde sale la información, en qué pasos se vuelve a ingresar y quién decide cuando el caso no encaja en la regla.</p></section>
-        <section><p class="eyebrow">02 / Implementación</p><h3>Elegir la herramienta más simple</h3><p>Según el flujo, puede bastar un script en Python o una integración por API. Si el equipo necesita consultar, editar o validar, una aplicación con Django puede ser más útil. La IA tiene sentido cuando el trabajo involucra audio o documentos y el resultado se puede revisar.</p></section>
-        <section><p class="eyebrow">03 / Prueba</p><h3>Comprobar con ejemplos</h3><p>Pruebo el flujo con casos normales y excepciones. Dejo claro qué se ejecuta automáticamente, qué debe confirmar una persona y cómo comprobar el resultado.</p></section>
+        <section><p class="eyebrow">01 / Alcance</p><h3>Un flujo automatizado</h3><p>Acordamos qué datos se traspasan y automatizo ese paso sin sumar herramientas si no hacen falta.</p></section>
+        <section><p class="eyebrow">02 / Prueba</p><h3>Casos normales y excepciones</h3><p>Probamos qué se carga automáticamente y qué necesita revisar alguien del equipo.</p></section>
+        <section><p class="eyebrow">03 / Entrega</p><h3>Documentación y medición</h3><p>Dejo una guía para usar el flujo. Comparamos cuánto tarda una carga antes y después, incluida la revisión manual.</p></section>
       </div>
     </section>
-    <section class="service-section" aria-labelledby="ejemplos">
-      <h2 id="ejemplos">Ejemplos de automatización</h2>
-      <div class="data-list">
-        <article class="data-row">
-          <div class="data-meta"><span>Datos de operación</span><span>Trabajo en MMJ Systems</span></div>
-          <div><h3>Actualizar información sin salir del marketplace</h3><p>Con Somos Inversión, detecté pasos que complicaban el trabajo diario y participé en el rediseño. El equipo ya puede actualizar información desde la plataforma.</p><a class="text-link" href="../#experiencia">Ver mi experiencia en MMJ Systems</a></div>
-        </article>
-        <article class="data-row">
-          <div class="data-meta"><span>Audio y documentos</span><span>Producto propio · Beta pública</span></div>
-          <div><h3>Convertir una grabación en un documento revisable</h3><p>En Transcríbeme desarrollé el flujo para subir audios, obtener transcripciones y resúmenes, y descargar el resultado.</p><a class="text-link" href="../proyectos/transcribeme.html">Ver el caso de Transcríbeme</a></div>
-        </article>
-        <article class="data-row">
-          <div class="data-meta"><span>Archivos y respaldos</span><span>Proyecto propio · En uso personal</span></div>
-          <div><h3>Pedir un respaldo desde el teléfono y verificar la copia</h3><p>Configuré un servidor personal con Hermes que me permite encargar respaldos y comprobar el resultado desde el celular.</p><a class="text-link" href="../proyectos/servidor-hermes.html">Ver el caso del servidor con Hermes</a></div>
-        </article>
-      </div>
-    </section>
+    <div class="case-note">
+      <p class="eyebrow">Experiencia profesional · MMJ Systems</p>
+      <p>Participé en el rediseño del marketplace de Somos Inversión. El equipo ya puede actualizar información desde la plataforma.</p>
+    </div>
+    <a class="button button-solid" href="../#contacto">Cuéntame qué quieres automatizar <span aria-hidden="true">↗</span></a>
   </main>
-  <footer class="footer shell"><span>José Mercado <span class="footer-divider" aria-hidden="true">/</span> Portafolio personal</span><a class="text-link" href="../#contacto">Conversemos <span aria-hidden="true">↗</span></a></footer>
+  <footer class="footer shell"><span>José Mercado <span class="footer-divider" aria-hidden="true">/</span> Portafolio personal</span><a class="text-link" href="../">Volver a la portada <span aria-hidden="true">↗</span></a></footer>
 </body>
 </html>
